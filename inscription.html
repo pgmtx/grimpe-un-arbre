@@ -17,11 +17,13 @@
       <br>
       Quel est votre niveau de grimpe ?
       <br>
-      <input type="radio" value="débutant" name="niveau_grimpe" required>
+      <!-- L'attribut id permet d'associer un label au input et surtout de pouvoir
+      sélectionner une case en cliquant sur le texte associé -->
+      <input type="radio" id="débutant" value="débutant" name="niveau_grimpe" required>
       <label for="débutant">Débutant</label>
-      <input type="radio" value="intermédiaire" name="niveau_grimpe">
+      <input type="radio" id="intermédiaire" value="intermédiaire" name="niveau_grimpe">
       <label for="intermédiaire">Intermédiaire</label>
-      <input type="radio" value="professionnel" name="niveau_grimpe">
+      <input type="radio" id="pro" value="professionnel" name="niveau_grimpe">
       <label for="pro">Professionnel</label>
       <br>
       <input type="submit" value="S'inscrire">
