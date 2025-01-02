@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Grimpe un arbre ! - Connexion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <h1>Connexion</h1>
+    <form action="./php/validation_connexion.php" method="post">
+      <label for="nom_utilisateur">Nom d'utilisateur</label>
+      <input id="nom_utilisateur" name="nom_utilisateur" required>
+      <br>
+      <label for="mot_de_passe">Mot de passe</label>
+      <input id="mot_de_passe" name="mot_de_passe" required>
+      <br>
+      <input type="submit" value="Se connecter">
+    </form>
+    <p>
+      Pas de compte ?
+      <a href="./inscription.html">S'inscrire</a>
+    </p>
+  </body>
+</html>
