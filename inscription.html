@@ -5,21 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/montrer_mdp.js"></script>
   </head>
   <body>
     <div class="conteneur">
       <h1>Inscription</h1>
       <form action="./php/validation_inscription.php" method="post">
-        <label for="nom_utilisateur">Nom d'utilisateur</label>
-        <input id="nom_utilisateur" name="nom_utilisateur" required>
-        <br>
-        <label for="mot_de_passe">Mot de passe</label>
-        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        <div class="noms">
+          <label for="nom_utilisateur">Nom d'utilisateur</label>
+          <input id="nom_utilisateur" name="nom_utilisateur" required>
+          <br>
+          <label for="mot_de_passe">Mot de passe</label>
+          <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+          <div>
+            <input type="checkbox" name="afficheur" onclick="changerAffichageMotDePasse()">
+            <label for="afficheur" id="afficheur" style="text-align: left">Afficher le mot de passe</label>
+          </div>
+        </div>
         <br>
         Quel est votre niveau de grimpe ?
         <br>
         <!-- L'attribut id permet d'associer un label au input et surtout de pouvoir
-      sélectionner une case en cliquant sur le texte associé -->
+        sélectionner une case en cliquant sur le texte associé -->
         <input type="radio" id="débutant" value="débutant" name="niveau_grimpe" required>
         <label for="débutant">Débutant</label>
         <input type="radio" id="intermédiaire" value="intermédiaire" name="niveau_grimpe">

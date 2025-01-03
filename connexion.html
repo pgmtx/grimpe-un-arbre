@@ -10,11 +10,13 @@
     <div class="conteneur">
       <h1>Connexion</h1>
       <form action="./php/validation_connexion.php" method="post">
-        <label for="nom_utilisateur">Nom d'utilisateur</label>
-        <input id="nom_utilisateur" name="nom_utilisateur" required>
-        <br>
-        <label for="mot_de_passe">Mot de passe</label>
-        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        <div class="noms">
+          <label for="nom_utilisateur">Nom d'utilisateur</label>
+          <input id="nom_utilisateur" name="nom_utilisateur" required>
+          <br>
+          <label for="mot_de_passe">Mot de passe</label>
+          <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        </div>
         <br>
         <input type="submit" value="Se connecter">
       </form>
