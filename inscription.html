@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/montrer_mdp.js"></script>
+    <script src="./js/gestion_mdp.js"></script>
   </head>
   <body>
     <div class="conteneur">
       <h1>Inscription</h1>
-      <form action="./php/validation_inscription.php" method="post">
+      <form name="formulaire" action="./php/validation_inscription.php" onsubmit="return verifierForceMotDePasse()" method="post">
         <div class="noms">
           <label for="nom_utilisateur">Nom d'utilisateur</label>
           <input id="nom_utilisateur" name="nom_utilisateur" required>
