@@ -8,7 +8,7 @@ header {
 
 .conteneur {
   margin: auto;
-  width: 25%;
+  max-width: 25em;
   border: 3px solid green;
   padding: 10px;
 }
@@ -24,11 +24,6 @@ label {
 input[type=submit] {
   /* text-align ne fonctionne pas ici, car le texte du bouton est déjà centré. */
   margin: auto;
-}
-
-input[type=checkbox] {
-  text-align: left;
-  width: auto;
 }
 
 #bouton_connexion {

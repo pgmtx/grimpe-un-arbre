@@ -23,16 +23,13 @@
           </div>
         </div>
         <br>
-        Quel est votre niveau de grimpe ?
-        <br>
-        <!-- L'attribut id permet d'associer un label au input et surtout de pouvoir
-        sélectionner une case en cliquant sur le texte associé -->
-        <input type="radio" id="débutant" value="débutant" name="niveau_grimpe" required>
-        <label for="débutant">Débutant</label>
-        <input type="radio" id="intermédiaire" value="intermédiaire" name="niveau_grimpe">
-        <label for="intermédiaire">Intermédiaire</label>
-        <input type="radio" id="pro" value="professionnel" name="niveau_grimpe">
-        <label for="pro">Professionnel</label>
+        <label for="selection_niveau">Quel est votre niveau de grimpe ?</label>
+        <select name="selection_niveau" required>
+          <option value="">--Veuillez choisir une option--</option>
+          <option value="1">Débutant</option>
+          <option value="2">Intermédiaire</option>
+          <option value="3">Professionnel</option>
+        </select>
         <br>
         <input type="submit" value="S'inscrire">
       </form>
