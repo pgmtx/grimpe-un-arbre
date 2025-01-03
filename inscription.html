@@ -5,7 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/gestion_mdp.js"></script>
+    <!-- Il faut utiliser l'attribut defer pour que JavaScript puisse trouver
+    les éléments lorsqu'on l'exécute sans appeler de fonction (en top-level).
+    Sinon, les fonctions document.getElement* renvoient null. -->
+    <script src="./js/gestion_mdp.js" defer></script>
   </head>
   <body>
     <div class="conteneur">
@@ -31,8 +34,16 @@
           <option value="3">Professionnel</option>
         </select>
         <br>
+        <br>
         <input type="submit" value="S'inscrire">
       </form>
+    </div>
+    <div id="message">
+      <h3>Le mot de passe doit contenir les éléments suivants :</h3>
+      <p id="minuscule" class="invalide">Une lettre <strong>minuscule</strong></p>
+      <p id="majuscule" class="invalide">Une lettre <strong>majuscule</strong></p>
+      <p id="chiffre" class="invalide">Un <strong>chiffre</strong></p>
+      <p id="longueur" class="invalide">Au minimum <strong>8 caractères</strong></p>
     </div>
   </body>
 </html>

@@ -1,3 +1,7 @@
+:root {
+  --decalage-symbole: -15px;
+}
+
 body {
   text-align: center;
 }
@@ -11,6 +15,7 @@ header {
   max-width: 25em;
   border: 3px solid green;
   padding: 10px;
+  background-color: #f1f1f1;
 }
 
 label {
@@ -24,6 +29,40 @@ label {
 input[type=submit] {
   /* text-align ne fonctionne pas ici, car le texte du bouton est déjà centré. */
   margin: auto;
+}
+
+#message {
+  display: none;
+  max-width: 25em;
+  border: 3px solid green;
+  margin: 2em auto auto auto;
+  background-color: #f1f1f1;
+}
+
+#message p {
+  text-align: left;
+  padding: 5px 35px;
+}
+
+.valide {
+  color: green;
+}
+
+/* Permet d'ajouter un élément devant les éléments de cette classe (ici, une coche) */
+.valide:before {
+  position: relative;
+  left: var(--decalage-symbole);
+  content: "\2714";
+}
+
+.invalide {
+  color: red;
+}
+
+.invalide:before {
+  position: relative;
+  left: var(--decalage-symbole);
+  content: "\292B"; /* Une croix */
 }
 
 #bouton_connexion {
