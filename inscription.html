@@ -4,29 +4,31 @@
     <title>Grimpe un arbre ! - Inscription</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <h1>Inscription</h1>
-    <form action="./php/validation_inscription.php" method="post">
-      <label for="nom_utilisateur">Nom d'utilisateur</label>
-      <input id="nom_utilisateur" name="nom_utilisateur" required>
-      <br>
-      <label for="mot_de_passe">Mot de passe</label>
-      <input type="password" id="mot_de_passe" name="mot_de_passe" required>
-      <br>
-      Quel est votre niveau de grimpe ?
-      <br>
-      <!-- L'attribut id permet d'associer un label au input et surtout de pouvoir
+    <div class="conteneur">
+      <h1>Inscription</h1>
+      <form action="./php/validation_inscription.php" method="post">
+        <label for="nom_utilisateur">Nom d'utilisateur</label>
+        <input id="nom_utilisateur" name="nom_utilisateur" required>
+        <br>
+        <label for="mot_de_passe">Mot de passe</label>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        <br>
+        Quel est votre niveau de grimpe ?
+        <br>
+        <!-- L'attribut id permet d'associer un label au input et surtout de pouvoir
       sélectionner une case en cliquant sur le texte associé -->
-      <input type="radio" id="débutant" value="débutant" name="niveau_grimpe" required>
-      <label for="débutant">Débutant</label>
-      <input type="radio" id="intermédiaire" value="intermédiaire" name="niveau_grimpe">
-      <label for="intermédiaire">Intermédiaire</label>
-      <input type="radio" id="pro" value="professionnel" name="niveau_grimpe">
-      <label for="pro">Professionnel</label>
-      <br>
-      <input type="submit" value="S'inscrire">
-    </form>
+        <input type="radio" id="débutant" value="débutant" name="niveau_grimpe" required>
+        <label for="débutant">Débutant</label>
+        <input type="radio" id="intermédiaire" value="intermédiaire" name="niveau_grimpe">
+        <label for="intermédiaire">Intermédiaire</label>
+        <input type="radio" id="pro" value="professionnel" name="niveau_grimpe">
+        <label for="pro">Professionnel</label>
+        <br>
+        <input type="submit" value="S'inscrire">
+      </form>
+    </div>
   </body>
 </html>
