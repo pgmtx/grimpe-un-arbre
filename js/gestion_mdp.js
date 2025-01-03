@@ -8,9 +8,9 @@ function compterTypesCaractere(texte) {
   for (const caractere of texte) {
     if ('0' <= caractere && caractere <= '9') {
       chiffres++;
-    } else if (caractere === caractere.toUpperCase()) {
+    } else if ('A' <= caractere && caractere <= 'Z') {
       majuscules++;
-    } else if (caractere === caractere.toLowerCase()) {
+    } else if ('a' <= caractere && caractere <= 'z') {
       minuscules++;
     } 
   }
@@ -18,7 +18,7 @@ function compterTypesCaractere(texte) {
 }
 
 function infosEntrees() {
-  entreeVide = (cle) => document.forms["formulaire"][cle] === "";
+  entreeVide = (cle) => document.getElementById(cle) === "";
   return !entreeVide("nom_utilisateur") && !entreeVide("mot_de_passe");
 }
 
@@ -28,12 +28,11 @@ function verifierForceMotDePasse() {
   }
 
   const taille_minimum = 8;
-  const mot_de_passe = document.forms["formulaire"]["mot_de_passe"].value;
+  const mot_de_passe = document.getElementById("mot_de_passe").value;
   if (mot_de_passe.length < taille_minimum) {
     return false;
   }
 
   let [majuscules, minuscules, chiffres] = compterTypesCaractere(mot_de_passe);
-  console.log([majuscules, minuscules, chiffres]);
   return (majuscules > 0) && (minuscules > 0) && (chiffres > 0);
 }
