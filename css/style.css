@@ -1,9 +1,16 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
 header {
   margin: 10px;
+}
+
+.conteneur {
+  margin: auto;
+  width: 25%;
+  border: 3px solid green;
+  padding: 10px;
 }
 
 label {
@@ -14,11 +21,9 @@ form {
   display: grid;
 }
 
-.conteneur {
-  margin: 0 auto;
-  width: 25%;
-  border: 3px solid green;
-  padding: 10px;
+input[type=submit] {
+  /* text-align ne fonctionne pas ici, car le texte du bouton est déjà centré. */
+  margin: auto;
 }
 
 #bouton_connexion {
