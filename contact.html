@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Grimpe un arbre ! - Contact</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/envoi_email.js" defer></script>
+  </head>
+  <body>
+    <div class="conteneur">
+      <h1>Contact</h1>
+      <p>Un problème ? Une suggestion ? Une requête ?<br>Vous êtes sur la bonne page.</p>
+      <form name="formulaire" id="formulaire" method="post">
+        <div class="noms">
+          <label for="sujet">Sujet</label>
+          <input type="text" name="sujet" id="sujet" placeholder="Sujet du mail" required>
+          <br>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Votre email" required>
+          <br>
+          <label for="message_mail">Message</label>
+          <textarea name="message" rows="5" cols="30" id="message_mail" placeholder="Votre message" style="resize: horizontal" required></textarea><br>
+        </div>
+        <input type="submit" value="Envoyer">
+      </form>
+    </div>
+  </body>
+</html>
