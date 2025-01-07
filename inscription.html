@@ -24,6 +24,8 @@
             <input type="checkbox" name="afficheur" onclick="changerAffichageMotDePasse()">
             <label for="afficheur" id="afficheur" style="text-align: left">Afficher le mot de passe</label>
           </div>
+          <label for="confirmation_mdp">Confirmer le mot de passe</label>
+          <input type="password" id="confirmation_mdp" name="confirmation_mdp" required>
         </div>
         <br>
         <label for="selection_niveau">Quel est votre niveau de grimpe ?</label>
@@ -44,6 +46,7 @@
       <p id="majuscule" class="invalide">Une lettre <strong>majuscule</strong></p>
       <p id="chiffre" class="invalide">Un <strong>chiffre</strong></p>
       <p id="longueur" class="invalide">Au minimum <strong>8 caractères</strong></p>
+      <p id="memes_mdp" class="invalide">Vous devez <strong>confirmer</strong> votre mot de passe</p>
     </div>
   </body>
 </html>
