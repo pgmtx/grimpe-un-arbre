@@ -55,6 +55,7 @@ function verifierValidite(id, condition) {
 
 function gererAffichageCriteresMotDePasse() {
   let mot_de_passe = document.getElementById("mot_de_passe");
+  let confirmation_mot_de_passe = document.getElementById("confirmation_mdp");
 
   mot_de_passe.onfocus = () => {
     document.getElementById("message").style.display = "block";
@@ -65,9 +66,9 @@ function gererAffichageCriteresMotDePasse() {
     verifierValidite("majuscule", mot_de_passe.value.match(/[A-Z]/g));
     verifierValidite("chiffre", mot_de_passe.value.match(/[0-9]/g));
     verifierValidite("longueur", mot_de_passe.value.length >= 8);
+    verifierValidite("memes_mdp", mot_de_passe.value === confirmation_mot_de_passe.value);
   };
 
-  let confirmation_mot_de_passe = document.getElementById("confirmation_mdp");
   confirmation_mot_de_passe.onkeyup = () => {
     verifierValidite("memes_mdp", mot_de_passe.value === confirmation_mot_de_passe.value);
   };

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <!-- Il faut utiliser l'attribut defer pour que JavaScript puisse trouver
-    les éléments lorsqu'on l'exécute sans appeler de fonction (en top-level).
-    Sinon, les fonctions document.getElement* renvoient null. -->
+    les éléments lorsqu'on l'exécute des éléments en top-level. -->
     <script src="./js/gestion_mdp.js" defer></script>
   </head>
   <body>
@@ -21,15 +20,15 @@
           <label for="mot_de_passe">Mot de passe</label>
           <input type="password" id="mot_de_passe" name="mot_de_passe" required>
           <div>
-            <input type="checkbox" name="afficheur" onclick="changerAffichageMotDePasse()">
-            <label for="afficheur" id="afficheur" style="text-align: left">Afficher le mot de passe</label>
+            <input type="checkbox" id="afficheur" name="afficheur" onclick="changerAffichageMotDePasse()">
+            <label for="afficheur" style="text-align: left">Afficher le mot de passe</label>
           </div>
           <label for="confirmation_mdp">Confirmer le mot de passe</label>
           <input type="password" id="confirmation_mdp" name="confirmation_mdp" required>
         </div>
         <br>
         <label for="selection_niveau">Quel est votre niveau de grimpe ?</label>
-        <select name="selection_niveau" required>
+        <select name="selection_niveau" id="selection_niveau" required>
           <option value="">--Veuillez choisir une option--</option>
           <option value="1">Débutant</option>
           <option value="2">Intermédiaire</option>
