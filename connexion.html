@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/gestion_mdp.js" defer></script>
   </head>
   <body>
     <div class="conteneur">
@@ -16,6 +17,10 @@
           <br>
           <label for="mot_de_passe">Mot de passe</label>
           <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+          <div>
+            <input type="checkbox" id="afficheur" name="afficheur" onclick="changerAffichageMotDePasse()">
+            <label for="afficheur" style="text-align: left">Afficher le mot de passe</label>
+          </div>
         </div>
         <br>
         <input type="submit" value="Se connecter">
