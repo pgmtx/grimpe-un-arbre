@@ -2,13 +2,13 @@
     try {
       verifier_validite_connexion();
     } catch (Exception $e) {
-      echo '<script type="text/javascript">';
-      echo 'function revenir_page_connexion() {';
-      echo 'window.location.href = "../connexion.html";';
-      echo "alert(\"Erreur: {$e->getMessage()}\");";
-      echo '}';
-      echo 'revenir_page_connexion();';
-      echo '</script>';
+      echo "<script type=\"text/javascript\">
+        function revenir_page_connexion() {
+        window.location.href = \"../connexion.html\";
+        alert(\"Erreur: {$e->getMessage()}\");
+        };
+        revenir_page_connexion();
+      </script>";
     }
 ?>
 
@@ -29,7 +29,7 @@ function verifier_validite_connexion() {
   $resultat = $requete->fetchAll();
 
   if (sizeof($resultat) == 0) {
-    throw new Exception("Il n'y a pas de compte utilisateur avec pour identifiant '$nom_utilisateur'");
+    throw new Exception("L'utilisateur '$nom_utilisateur' n'existe pas.");
   }
 
   $mot_de_passe = $_POST["mot_de_passe"];
