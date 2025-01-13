@@ -10,13 +10,15 @@ function obtenir_compte_correspondant($nom_utilisateur) {
   $resultat = $requete->fetchAll();
 
   if (sizeof($resultat) === 0) {
-    throw new Exception("L'utilisateur '$nom_utilisateur' n'existe pas.");
+    return null;
   }
 
   return $resultat[0];
 }
 
 function verifier_validite_connexion() {
+  session_start();
+
   // A lieu si on essaye d'accéder à cette page sans être connecté
   if (!isset($_POST["nom_utilisateur"])) {
     throw new Exception("Impossible de valider la connexion si vous n'êtes pas connecté.");
@@ -24,6 +26,9 @@ function verifier_validite_connexion() {
 
   $nom_utilisateur = $_POST["nom_utilisateur"];
   $compte = obtenir_compte_correspondant($nom_utilisateur);
+  if (is_null($compte)) {
+    throw new Exception("L'utilisateur '$nom_utilisateur' n'existe pas.");
+  }
 
   $mot_de_passe = $_POST["mot_de_passe"];
   $mot_de_passe_attendu = $compte['mot_de_passe'];
@@ -32,18 +37,25 @@ function verifier_validite_connexion() {
     throw new Exception("Mauvais mot de passe.");
   }
 
-  echo "Bienvenue $nom_utilisateur !";
+  $_SESSION['identifiant'] = $nom_utilisateur;
+  header('Location: ./exploreur.php');
+  die();
 }
 
-try {
-  verifier_validite_connexion();
-} catch (Exception $e) {
-  echo "<script type=\"text/javascript\">
-    function revenir_page_connexion() {
-    window.location.href = \"../connexion.html\";
-    alert(\"Erreur: {$e->getMessage()}\");
-    };
-    revenir_page_connexion();
-  </script>";
+/* Ne s'exécute que si le fichier lui-même est exécuté.
+ * Cela permet d'éviter des appels de fonctions non souhaités lors d'un `require`.
+*/
+if (!debug_backtrace()) {
+  try {
+    verifier_validite_connexion();
+  } catch (Exception $e) {
+    echo "<script type=\"text/javascript\">
+      function revenir_page_connexion() {
+      window.location.href = \"../connexion.html\";
+      alert(\"Erreur: {$e->getMessage()}\");
+      };
+      revenir_page_connexion();
+    </script>";
+  }
 }
 ?>
