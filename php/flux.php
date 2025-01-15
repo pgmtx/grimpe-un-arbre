@@ -23,7 +23,7 @@
     echo '</span>
       </button>
       <div id="mon_dropdown" class="contenu_dropdown">
-        <a href="#">À propos</a>
+        <a href="./infos.php">À propos</a>
         <a href="#">Options</a>
         <a href="./deconnexion.php">Déconnexion</a>
       </div>
