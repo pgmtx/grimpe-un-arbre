@@ -29,6 +29,8 @@
       </div>
     </div>
     <script src="../js/flux.js"></script>';
+
+    echo "<p>C'est un peu vide ici...</p>";
     ?>
   </body>
 </html>
