@@ -4,9 +4,21 @@
   display: inline-block;
 }
 
-/* .contenu_dropdown doit être défini AVANT .affichage, sinon le contenu ne s'affichera pas */
+#dropdown a:hover {
+  background-color: #ddd;
+}
+
+/* .contenu_dropdown doit être défini AVANT .affichage, sinon le contenu ne
+ * s'affichera pas
+ */
 .contenu_dropdown {
   display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .affichable {
