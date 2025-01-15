@@ -8,15 +8,19 @@
     <script src="../js/gestion_deconnexion.js"></script>
   </head>
   <body>
-    <div style="text-align: right" id="bouton_interaction">
-      <span style="vertical-align: middle">
-        <?php
-        /* Permet de récupérer des déclarations d'autres fichiers */
-        session_start();
-        echo $_SESSION['identifiant'];
-        ?>
-      </span>
-      <img alt="Photo de profil" src="../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
-    </div>
+    <?php
+    if (!isset($_COOKIE['identifiant'])) {
+      header('Location: ../connexion.html');
+      die();
+    }
+
+    $identifiant = $_COOKIE['identifiant'];
+    echo '<div style="text-align: right" id="bouton_interaction">
+    <span style="vertical-align: middle">';
+    echo $identifiant;
+    echo '</span>
+    <img alt="Photo de profil" src="../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
+    </div>';
+    ?>
   </body>
 </html>

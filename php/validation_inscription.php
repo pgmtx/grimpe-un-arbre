@@ -7,8 +7,6 @@ function ajouter_compte($nom_utilisateur, $mot_de_passe) {
 }
 
 function accueillir_utilisateur() {
-  session_start();
-
   if (!isset($_POST["nom_utilisateur"])) {
     throw new Exception("Impossible de valider l'inscription si vous ne venez pas de vous inscrire.");
   }
@@ -24,9 +22,7 @@ function accueillir_utilisateur() {
 
   //$niveau = $_POST["selection_niveau"];
 
-  $_SESSION['identifiant'] = $nom_utilisateur;
-  header('Location: ./flux.php');
-  die();
+  rediriger_vers_flux($nom_utilisateur);
 }
 
 try {

@@ -22,9 +22,14 @@ function obtenir_compte_correspondant($nom_utilisateur) {
   return $resultat[0];
 }
 
-function verifier_validite_connexion() {
-  session_start();
+function rediriger_vers_flux($nom_utilisateur) {
+  // On crée un cookie qui dure 30 jours
+  setcookie("identifiant", $nom_utilisateur, time() + (86400 * 30), "/");
+  header('Location: ./flux.php');
+  die();
+}
 
+function verifier_validite_connexion() {
   // A lieu si on essaye d'accéder à cette page sans être connecté
   if (!isset($_POST["nom_utilisateur"])) {
     throw new Exception("Impossible de valider la connexion si vous n'êtes pas connecté.");
@@ -43,9 +48,7 @@ function verifier_validite_connexion() {
     throw new Exception("Mauvais mot de passe.");
   }
 
-  $_SESSION['identifiant'] = $nom_utilisateur;
-  header('Location: ./flux.php');
-  die();
+  rediriger_vers_flux($nom_utilisateur);
 }
 
 /* Ne s'exécute que si le fichier lui-même est exécuté.
