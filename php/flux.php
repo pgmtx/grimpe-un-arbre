@@ -4,8 +4,7 @@
     <title>Grimpe un arbre ! - Flux</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="../css/style.css">-->
-    <script src="../js/gestion_deconnexion.js"></script>
+    <link rel="stylesheet" href="../css/flux.css">
   </head>
   <body>
     <?php
@@ -15,12 +14,21 @@
     }
 
     $identifiant = $_COOKIE['identifiant'];
-    echo '<div style="text-align: right" id="bouton_interaction">
-    <span style="vertical-align: middle">';
+
+    echo '<div id="dropdown">
+      <img alt="Photo de profil" src="../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
+      <button class="bouton_dropdown" onclick="changer_affichage_dropdown()">';
+    echo '<span style="vertical-align: middle">';
     echo $identifiant;
     echo '</span>
-    <img alt="Photo de profil" src="../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
-    </div>';
+      </button>
+      <div id="mon_dropdown" class="contenu_dropdown">
+        <a href="#">À propos</a>
+        <a href="#">Options</a>
+        <a href="./deconnexion.php">Déconnexion</a>
+      </div>
+    </div>
+    <script src="../js/flux.js"></script>';
     ?>
   </body>
 </html>
