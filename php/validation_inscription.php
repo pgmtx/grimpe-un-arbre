@@ -1,16 +1,13 @@
 <?php
-function ajouter_compte($nom_utilisateur, $mot_de_passe) {
-  $configs = include('config.php');
+require('validation_connexion.php');
 
-  $pdo_source = "mysql:host={$configs['host']};dbname={$configs['dbname']}";
-  $pdo = new PDO($pdo_source, $configs['username'], $configs['password']);
+function ajouter_compte($nom_utilisateur, $mot_de_passe) {
   $sql = "INSERT INTO comptes (identifiant, mot_de_passe) VALUES ('$nom_utilisateur', '$mot_de_passe')";
-  $requete = $pdo->prepare($sql);
-  $requete->execute();
+  faire_requete_sql($sql);
 }
 
 function accueillir_utilisateur() {
-  require('validation_connexion.php');
+  session_start();
 
   if (!isset($_POST["nom_utilisateur"])) {
     throw new Exception("Impossible de valider l'inscription si vous ne venez pas de vous inscrire.");
@@ -28,7 +25,7 @@ function accueillir_utilisateur() {
   //$niveau = $_POST["selection_niveau"];
 
   $_SESSION['identifiant'] = $nom_utilisateur;
-  header('Location: ./exploreur.php');
+  header('Location: ./flux.php');
   die();
 }
 

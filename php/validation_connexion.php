@@ -1,12 +1,18 @@
 <?php
-function obtenir_compte_correspondant($nom_utilisateur) {
+function faire_requete_sql($sql) {
   $configs = include('config.php');
 
   $pdo_source = "mysql:host={$configs['host']};dbname={$configs['dbname']}";
   $pdo = new PDO($pdo_source, $configs['username'], $configs['password']);
-  $sql = "SELECT * FROM comptes WHERE identifiant = '$nom_utilisateur'";
   $requete = $pdo->prepare($sql);
   $requete->execute();
+
+  return $requete;
+}
+
+function obtenir_compte_correspondant($nom_utilisateur) {
+  $sql = "SELECT * FROM comptes WHERE identifiant = '$nom_utilisateur'";
+  $requete = faire_requete_sql($sql);
   $resultat = $requete->fetchAll();
 
   if (sizeof($resultat) === 0) {
@@ -38,7 +44,7 @@ function verifier_validite_connexion() {
   }
 
   $_SESSION['identifiant'] = $nom_utilisateur;
-  header('Location: ./exploreur.php');
+  header('Location: ./flux.php');
   die();
 }
 
