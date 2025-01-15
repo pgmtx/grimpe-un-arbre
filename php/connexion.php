@@ -1,15 +1,22 @@
+<?php
+if (isset($_COOKIE['identifiant'])) {
+  require('validation_connexion.php');
+  rediriger_vers_flux();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <title>Grimpe un arbre ! - Connexion</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <div class="conteneur">
       <h1>Connexion</h1>
-      <form action="./php/validation_connexion.php" method="post">
+      <form action="./validation_connexion.php" method="post">
         <div class="noms">
           <label for="nom_utilisateur">Nom d'utilisateur</label>
           <input id="nom_utilisateur" name="nom_utilisateur" required>
@@ -26,7 +33,7 @@
       </form>
       <p>
         Pas de compte ?
-        <a href="./inscription.html">S'inscrire</a>
+        <a href="../inscription.html">S'inscrire</a>
       </p>
     </div>
     <script src="./js/gestion_mdp.js"></script>

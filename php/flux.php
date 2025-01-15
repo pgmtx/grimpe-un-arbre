@@ -9,7 +9,7 @@
   <body>
     <?php
     if (!isset($_COOKIE['identifiant'])) {
-      header('Location: ../connexion.html');
+      header('Location: ./connexion.php');
       die();
     }
 

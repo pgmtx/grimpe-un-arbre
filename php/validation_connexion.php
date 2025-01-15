@@ -22,9 +22,11 @@ function obtenir_compte_correspondant($nom_utilisateur) {
   return $resultat[0];
 }
 
-function rediriger_vers_flux($nom_utilisateur) {
-  // On crée un cookie qui dure 30 jours
-  setcookie("identifiant", $nom_utilisateur, time() + (86400 * 30), "/");
+function rediriger_vers_flux($nom_utilisateur=null) {
+  if (!is_null($nom_utilisateur)) {
+    // On crée un cookie qui dure 30 jours
+    setcookie("identifiant", $nom_utilisateur, time() + (86400 * 30), "/");
+  }
   header('Location: ./flux.php');
   die();
 }
@@ -60,7 +62,7 @@ if (!debug_backtrace()) {
   } catch (Exception $e) {
     echo "<script type=\"text/javascript\">
       function revenir_page_connexion() {
-      window.location.href = \"../connexion.html\";
+      window.location.href = \"./connexion.php\";
       alert(\"Erreur: {$e->getMessage()}\");
       };
       revenir_page_connexion();
