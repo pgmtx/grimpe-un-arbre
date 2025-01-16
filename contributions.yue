@@ -8,7 +8,7 @@ const comme_liste = (iter) -> [elem for elem in iter]
 const arrondir = (x) -> math.floor x + 0.5
 const executer_commande = (commande) ->
   const processus = assert io.popen commande
-  const sortie = processus\read! "*all"
+  const sortie = processus\read "*all"
   processus\close!
   sortie
 

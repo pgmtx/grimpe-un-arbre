@@ -19,8 +19,12 @@
   $nom_utilisateur = $_COOKIE['identifiant'];
   $compte = obtenir_compte_correspondant($nom_utilisateur);
 
+  if ($nom_utilisateur === 'admin') {
+    echo "<h1 style=\"color: red\">{$nom_utilisateur} (dev)</h1>";
+  } else {
+    echo "<h1>{$nom_utilisateur}</h1>";
+  }
   echo "
-    <h1>{$compte['identifiant']}</h1>
     <p>Niveau : {$compte['niveau']}</p>
     <p>Arbres grimpés : {$compte['arbres_grimpes']}</p>
   ";
