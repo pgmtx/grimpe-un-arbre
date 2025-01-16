@@ -36,6 +36,6 @@ if (isset($_COOKIE['identifiant'])) {
         <a href="../inscription.html">S'inscrire</a>
       </p>
     </div>
-    <script src="./js/gestion_mdp.js"></script>
+    <script src="../js/gestion_mdp.js"></script>
   </body>
 </html>

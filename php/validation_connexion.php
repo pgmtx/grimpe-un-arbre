@@ -27,7 +27,7 @@ function rediriger_vers_flux($nom_utilisateur=null) {
     // On crée un cookie qui dure 30 jours
     setcookie("identifiant", $nom_utilisateur, time() + (86400 * 30), "/");
   }
-  header('Location: ./flux.php');
+  header('Location: ./flux/flux.php');
   die();
 }
 
