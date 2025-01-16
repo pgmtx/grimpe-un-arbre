@@ -13,9 +13,9 @@ function afficher_les_arbres () {
 			"<div class= conteneur>"
 				readfile $image;
 				echo= "<b>Espèce : </b>" $espece;
-				echo= "<b>Région : </b>" $region
-				echo= "<b>Coordonées : </b>" $coordonées
-				echo= "<b>Hauteur : </b>" hauteur
+				echo= "<b>Région : </b>" $region;
+				echo= "<b>Coordonées : </b>" $coordonées;
+				echo= "<b>Hauteur : </b>" hauteur;
 				echo= "Difficultée : " $difficultee;
 			"</div>"
 	}
