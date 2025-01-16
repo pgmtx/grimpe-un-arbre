@@ -1,5 +1,5 @@
 <?php
-require('validation_connexion.php');
+require('requetes.php');
 
 function ajouter_compte($nom_utilisateur, $mot_de_passe) {
   $sql = "INSERT INTO comptes (identifiant, mot_de_passe) VALUES ('$nom_utilisateur', '$mot_de_passe')";

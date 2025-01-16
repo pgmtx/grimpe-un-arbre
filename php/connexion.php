@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE['identifiant'])) {
-  require('validation_connexion.php');
+  require('requetes.php');
   rediriger_vers_flux();
 }
 ?>

@@ -24,13 +24,46 @@
       </button>
       <div id="mon_dropdown" class="contenu_dropdown">
         <a href="./infos.php">À propos</a>
-        <a href="#">Options</a>
         <a href="../deconnexion.php">Déconnexion</a>
       </div>
     </div>
     <script src="../../js/flux.js"></script>';
 
-    echo "<p>C'est un peu vide ici...</p>";
+    function afficher_publication($indice, $publication) {
+      echo "
+      <div class=\"publication\">
+        <h1>{$publication['titre']}</h1>
+        <p>Écrit par ";
+
+      $auteur = $publication['auteur'];
+      if ($auteur === 'admin') {
+        echo "<span style=\"color: red\">$auteur</span>";
+      } else {
+        echo $auteur;
+      }
+
+      echo "
+        </p>
+        <p>{$publication['contenu']}</p>
+      </div>";
+    }
+
+    require('../requetes.php');
+    $requete = faire_requete_sql("SELECT * FROM publications");
+    $publications = $requete->fetchAll();
+
+    if (count($publications) === 0) {
+      echo "<p>C'est un peu vide ici...</p>";
+    }
+
+    /* On parcourt du plus récent au moins récent.
+     * Sachant que plus l'id d'une publication est élevé, plus il est récent,
+     * il suffit de parcourir la liste à l'envers.
+     */
+    $publications_ordonnees = array_reverse($publications);
+    foreach (array_values($publications_ordonnees) as $i => $publication) {
+      afficher_publication($i, $publication);
+    }
     ?>
   </body>
 </html>

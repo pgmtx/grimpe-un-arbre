@@ -14,7 +14,7 @@
     die();
   }
 
-  require('../validation_connexion.php');
+  require('../requetes.php');
 
   $nom_utilisateur = $_COOKIE['identifiant'];
   $compte = obtenir_compte_correspondant($nom_utilisateur);
@@ -38,7 +38,7 @@
       "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
       "Août", "Septembre", "Octobre", "Novembre", "Décembre"
     );
-    assert(count($mois_anglais) == count($mois_francais));
+    assert(count($mois_anglais) === count($mois_francais));
 
     $indice = array_search($mois, $mois_anglais);
     return $mois_francais[$indice];

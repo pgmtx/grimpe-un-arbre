@@ -1,37 +1,7 @@
 <?php
-function faire_requete_sql($sql) {
-  $configs = include('config.php');
-
-  $pdo_source = "mysql:host={$configs['host']};dbname={$configs['dbname']}";
-  $pdo = new PDO($pdo_source, $configs['username'], $configs['password']);
-  $requete = $pdo->prepare($sql);
-  $requete->execute();
-
-  return $requete;
-}
-
-function obtenir_compte_correspondant($nom_utilisateur) {
-  $sql = "SELECT * FROM comptes WHERE identifiant = '$nom_utilisateur'";
-  $requete = faire_requete_sql($sql);
-  $resultat = $requete->fetchAll();
-
-  if (sizeof($resultat) === 0) {
-    return null;
-  }
-
-  return $resultat[0];
-}
-
-function rediriger_vers_flux($nom_utilisateur=null) {
-  if (!is_null($nom_utilisateur)) {
-    // On crée un cookie qui dure 30 jours
-    setcookie("identifiant", $nom_utilisateur, time() + (86400 * 30), "/");
-  }
-  header('Location: ./flux/flux.php');
-  die();
-}
-
 function verifier_validite_connexion() {
+  require('requetes.php');
+
   // A lieu si on essaye d'accéder à cette page sans être connecté
   if (!isset($_POST["nom_utilisateur"])) {
     throw new Exception("Impossible de valider la connexion si vous n'êtes pas connecté.");
