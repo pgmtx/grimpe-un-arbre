@@ -9,8 +9,10 @@ h1 {
 	text color : (00880B);
 }
 
-#conteneur {
-	position : relative;
-	border : 3px, solid, Green;
-	background color : (#D6DBE2);
+.conteneur {
+  margin: auto;
+  max-width: 25em;
+  border: 3px solid green;
+  padding: 10px;
+  background-color: #f1f1f1;
 }
