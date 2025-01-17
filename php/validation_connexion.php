@@ -27,16 +27,7 @@ function verifier_validite_connexion() {
  * Cela permet d'éviter des appels de fonctions non souhaités lors d'un `require`.
 */
 if (!debug_backtrace()) {
-  try {
-    verifier_validite_connexion();
-  } catch (Exception $e) {
-    echo "<script type=\"text/javascript\">
-      function revenir_page_connexion() {
-      window.location.href = \"./connexion.php\";
-      alert(\"Erreur: {$e->getMessage()}\");
-      };
-      revenir_page_connexion();
-    </script>";
-  }
+  require('affichage_erreur.php');
+  executerAvecErreurs(function() { verifier_validite_connexion(); });
 }
 ?>

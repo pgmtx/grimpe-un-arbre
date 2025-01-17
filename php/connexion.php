@@ -32,8 +32,8 @@ if (isset($_COOKIE['identifiant'])) {
         <input type="submit" value="Se connecter">
       </form>
       <p>
-        Pas de compte ?
-        <a href="../inscription.html">S'inscrire</a>
+        <a href="../inscription.html">S'inscrire</a> -
+        <a href="../reinitialiser_mdp.html">Mot de passe oublié</a>
       </p>
     </div>
     <script src="../js/gestion_mdp.js"></script>
