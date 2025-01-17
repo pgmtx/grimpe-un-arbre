@@ -4,11 +4,20 @@ body {
   font-family: 'Roboto', serif;
 }
 
+h1 {
+  padding-left: 10px;
+}
+
 .publication {
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
   max-width: 50%;
+}
+
+.sous_texte {
+  text-align: right;
+  font-style: italic;
 }
 
 #dropdown {

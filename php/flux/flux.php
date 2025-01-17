@@ -32,7 +32,7 @@
     function afficher_publication($indice, $publication) {
       echo "
       <div class=\"publication\">
-        <h1>{$publication['titre']}</h1>
+        <h2>{$publication['titre']}</h2>
         <p>Écrit par ";
 
       $auteur = $publication['auteur'];
@@ -45,6 +45,7 @@
       echo "
         </p>
         <p>{$publication['contenu']}</p>
+        <p class=\"sous_texte\">Publié le {$publication['date_creation']}</p>
       </div>";
     }
 
@@ -54,6 +55,8 @@
 
     if (count($publications) === 0) {
       echo "<p>C'est un peu vide ici...</p>";
+    } else {
+      echo "<h1>Publications récentes</h1>";
     }
 
     /* On parcourt du plus récent au moins récent.
