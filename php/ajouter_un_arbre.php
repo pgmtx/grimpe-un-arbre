@@ -10,14 +10,14 @@ function afficher_les_arbres () {
 			$hauteur=$_POST['hauteur'][i];
 			$difficultee=$_POST['difficultee'][i];
 			
-			"<div class= conteneur>"
+			<div class="conteneur">
 				readfile $image;
 				echo= "<b>Espèce : </b>" $espece;
 				echo= "<b>Région : </b>" $region;
 				echo= "<b>Coordonées : </b>" $coordonées;
 				echo= "<b>Hauteur : </b>" hauteur;
 				echo= "Difficultée : " $difficultee;
-			"</div>"
+			</div>
 	}
 }
 }
