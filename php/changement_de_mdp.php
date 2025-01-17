@@ -8,7 +8,7 @@ function verifier_validite_connexion() {
     }
   
   $nom_utilisateur = $_COOKIE['identifiant'];
-  $compte= obtenir_compte_correspondant ($nom_utilisateur)
+  $compte= obtenir_compte_correspondant ($nom_utilisateur);
   $mot_de_passe = $compte['mot_de_passe'];
   $nouveau_mot_de_passe = $_POST["mot_de_passe"];
   
@@ -17,7 +17,10 @@ function verifier_validite_connexion() {
   }
   else {
 	$mot_de_passe = $ancien_mot_de_passe;
+	modifier mot_de_passe ($mot_de_passe);
 }
+
+
 
 
 ?>
