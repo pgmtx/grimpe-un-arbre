@@ -40,11 +40,10 @@
     require('../requetes.php');
     $requete = faire_requete_sql("SELECT * FROM publications WHERE auteur = '$identifiant'");
     $publications = $requete->fetchAll();
+    echo "<h1>Mes publications</h1>";
 
     if (count($publications) === 0) {
-      echo "<h1>Vous n'avez rien publié pour le moment</h1>";
-    } else {
-      echo "<h1>Vos publications</h1>";
+      echo "<p>Vous n'avez rien publié pour le moment</p>";
     }
 
     /* On parcourt du plus récent au moins récent.

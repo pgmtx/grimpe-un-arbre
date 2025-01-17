@@ -26,7 +26,7 @@
           <input type="text" id="region">
           <br>
           <label for="hauteur" class="requis">Hauteur (en m)</label>
-          <input type="text" id="hauteur" required>
+          <input type="number" id="hauteur" required>
           <br>
           <label for="selection_niveau" class="requis">Difficulté</label>
           <select name="selection_niveau" id="selection_niveau" required>

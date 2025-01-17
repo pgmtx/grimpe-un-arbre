@@ -14,26 +14,30 @@
   <body>
     <div class="conteneur">
       <h1>Nouvelle publication</h1>
-      <form name="ajouter_arbre" action="formulaire.php" method="post">
+      <form name="ajouter_arbre" action="./publier.php" method="post">
         <div class="noms">
+          <label for="titre" class="requis">Titre</label>
+          <!-- id pour le label et name pour la récupération POST en php -->
+          <input type="text" id="titre" name="titre" required>
+          <br>
           <label for="espece" class="requis">Espèce</label>
-          <input type="text" id="espece" required>
+          <input type="text" id="espece" name="espece" required>
           <br>
           <label for="coordonnees">Coordonnées</label>
-          <input type="text" id="coordonnees">
+          <input type="text" id="coordonnees" name="coordonnees">
           <br>
           <label for="region">Région</label>
-          <input type="text" id="region">
+          <input type="text" id="region" name="region">
           <br>
           <label for="hauteur" class="requis">Hauteur (en m)</label>
-          <input type="text" id="hauteur" required>
-          <br>
+          <input type="number" id="hauteur" name="hauteur" required>
+          <br>  
           <label for="selection_niveau" class="requis">Difficulté</label>
-          <select name="selection_niveau" id="selection_niveau" required>
+          <select name="difficulte" id="difficulte" required>
             <option value="">--Veuillez choisir une option--</option>
-            <option value="1">Facile</option>
-            <option value="2">Moyen</option>
-            <option value="3">Difficile</option>
+            <option value="facile">Facile</option>
+            <option value="moyen">Moyen</option>
+            <option value="difficile">Difficile</option>
           </select>
           <br>
           <label for="image">Photo de votre arbre</label>

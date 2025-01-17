@@ -1,9 +1,14 @@
 <?php
-function faire_requete_sql($sql) {
+function creer_pdo() {
   $configs = include('config.php');
 
   $pdo_source = "mysql:host={$configs['host']};dbname={$configs['dbname']}";
   $pdo = new PDO($pdo_source, $configs['username'], $configs['password']);
+  return $pdo;
+}
+
+function faire_requete_sql($sql) {
+  $pdo = creer_pdo();
   $requete = $pdo->prepare($sql);
   $requete->execute();
 
@@ -29,5 +34,10 @@ function rediriger_vers_flux($nom_utilisateur=null) {
   }
   header('Location: ./flux/flux.php');
   die();
+}
+
+function formater_pour_sql($texte) {
+  $pdo = creer_pdo();
+  return $pdo->quote($texte);
 }
 ?>

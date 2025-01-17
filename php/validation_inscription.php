@@ -20,8 +20,6 @@ function accueillir_utilisateur() {
   $mot_de_passe = $_POST["mot_de_passe"];
   ajouter_compte($nom_utilisateur, $mot_de_passe);
 
-  //$niveau = $_POST["selection_niveau"];
-
   rediriger_vers_flux($nom_utilisateur);
 }
 
