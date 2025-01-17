@@ -30,6 +30,7 @@
     <script src="../../js/flux.js"></script>';
 
     function afficher_publication($indice, $publication) {
+      require_once('date.php');
       echo "
       <div class=\"publication\">
         <h2>{$publication['titre']}</h2>
@@ -42,10 +43,11 @@
         echo $auteur;
       }
 
+      $date = obtenir_date($publication['date_creation'], true);
       echo "
         </p>
         <p>{$publication['contenu']}</p>
-        <p class=\"sous_texte\">Publié le {$publication['date_creation']}</p>
+        <p class=\"sous_texte\">Publié le {$date}</p>
       </div>";
     }
 

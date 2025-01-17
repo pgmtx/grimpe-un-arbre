@@ -29,27 +29,9 @@
     <p>Arbres grimpés : {$compte['arbres_grimpes']}</p>
   ";
 
-  function obtenir_mois_francais($mois) {
-    $mois_anglais = array(
-      "January", "February", "March", "April", "May", "June", "July",
-      "August", "September", "October", "November", "Décember"
-    );
-    $mois_francais = array(
-      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
-      "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-    );
-    assert(count($mois_anglais) === count($mois_francais));
-
-    $indice = array_search($mois, $mois_anglais);
-    return $mois_francais[$indice];
-  }
-
-  $date_brute = substr($compte['date_creation'], 0, strlen('YYYY-MM-DD'));
-  $date_creation = DateTime::createFromFormat('Y-m-d', $date_brute);
-  $sortie = explode(" ", $date_creation->format('j F Y')); // jour Mois année
-  $mois = obtenir_mois_francais($sortie[1]);
-  $date = "{$sortie[0]} $mois {$sortie[2]}";
-  echo "<p>Compte créé le : $date</p>"
+  require('date.php');
+  $date = obtenir_date($compte['date_creation']);
+  echo "<p>Compte créé le : $date</p>";
   ?>
   </body>
 </html>
