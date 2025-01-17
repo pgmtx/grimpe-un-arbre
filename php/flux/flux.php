@@ -18,7 +18,7 @@
     echo '<div id="dropdown">
       <img alt="Photo de profil" src="../../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
       <button class="bouton_dropdown" onclick="changer_affichage_dropdown()">';
-    echo '<span style="vertical-align: middle">';
+    echo '<span style="vertical-align: middle; font-weight: bold">';
     echo $identifiant;
     echo '</span>
       </button>
