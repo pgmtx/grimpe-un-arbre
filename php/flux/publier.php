@@ -9,7 +9,7 @@
   <body>
     <?php
     if (!isset($_POST['espece'])) {
-      header('Location: ../connexion.php');
+      header('Location: ../index.php');
       die();
     }
 

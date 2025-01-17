@@ -10,7 +10,7 @@
   <img alt="Votre photo de profil" src="../../static/photo_profil.png"><br>
   <?php
   if (!isset($_COOKIE['identifiant'])) {
-    header('Location: ../connexion.php');
+    header('Location: ../index.php');
     die();
   }
 

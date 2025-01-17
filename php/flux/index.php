@@ -9,7 +9,7 @@
   <body>
     <?php
     if (!isset($_COOKIE['identifiant'])) {
-      header('Location: ../connexion.php');
+      header('Location: ../index.php');
       die();
     }
 
@@ -26,7 +26,7 @@
         <a href="./infos.php">À propos</a>
         <a href="./mes_publications.php">Mes publications</a>
         <a href="./ajouter_un_arbre.php">Nouvelle publication</a>
-        <a href="../deconnexion.php" style="color: red">Déconnexion</a>
+        <a href="../deindex.php" style="color: red">Déconnexion</a>
       </div>
     </div>
     <script src="../../js/flux.js"></script>

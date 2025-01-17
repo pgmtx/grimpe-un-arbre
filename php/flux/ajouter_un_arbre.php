@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <?php
     if (!isset($_COOKIE['identifiant'])) {
-      header('Location: ../connexion.php');
+      header('Location: ../index.php');
     }
     ?>
   </head>

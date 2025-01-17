@@ -1,5 +1,5 @@
 <?php
-function executerAvecErreurs($fonction, $lien_redirection='./connexion.php') {
+function executerAvecErreurs($fonction, $lien_redirection='./index.php') {
   try {
     $fonction();
   } catch (Exception $e) {

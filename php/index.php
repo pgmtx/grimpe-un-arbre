@@ -1,4 +1,9 @@
 <?php
+/* NOTE: Ce fichier se nomme index.php au lieu de connexion.php
+ * afin d'éviter que les utilisateurs tombent sur la liste des fichiers php
+ * en tentant d'aller sur le dossier php.
+ */
+
 if (isset($_COOKIE['identifiant'])) {
   require('requetes.php');
   rediriger_vers_flux();
@@ -16,7 +21,7 @@ if (isset($_COOKIE['identifiant'])) {
   <body>
     <div class="conteneur">
       <h1>Connexion</h1>
-      <form action="./validation_connexion.php" method="post">
+      <form action="./validation_index.php" method="post">
         <div class="noms">
           <label for="nom_utilisateur">Nom d'utilisateur</label>
           <input id="nom_utilisateur" name="nom_utilisateur" required>
