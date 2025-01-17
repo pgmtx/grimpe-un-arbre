@@ -15,21 +15,6 @@
 
     $identifiant = $_COOKIE['identifiant'];
 
-    echo '<div id="dropdown">';
-    //<img alt="Photo de profil" src="../../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
-    echo '<button class="bouton_dropdown" onclick="changer_affichage_dropdown()">
-    <span style="vertical-align: middle; font-weight: bold">';
-    echo $identifiant;
-    echo '</span>
-      </button>
-      <div id="mon_dropdown" class="contenu_dropdown">
-        <a href="./infos.php">À propos</a>
-        <a href="./mes_publications.php">Mes publications</a>
-        <a href="../deconnexion.php" style="color: red">Déconnexion</a>
-      </div>
-    </div>
-    <script src="../../js/flux.js"></script>';
-
     function afficher_publication($indice, $publication) {
       require_once('date.php');
       echo "
@@ -53,13 +38,13 @@
     }
 
     require('../requetes.php');
-    $requete = faire_requete_sql("SELECT * FROM publications");
+    $requete = faire_requete_sql("SELECT * FROM publications WHERE auteur = '$identifiant'");
     $publications = $requete->fetchAll();
 
     if (count($publications) === 0) {
-      echo "<p>C'est un peu vide ici...</p>";
+      echo "<h1>Vous n'avez rien publié pour le moment</h1>";
     } else {
-      echo "<h1>Publications récentes</h1>";
+      echo "<h1>Vos publications</h1>";
     }
 
     /* On parcourt du plus récent au moins récent.
