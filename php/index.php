@@ -21,7 +21,7 @@ if (isset($_COOKIE['identifiant'])) {
   <body>
     <div class="conteneur">
       <h1>Connexion</h1>
-      <form action="./validation_index.php" method="post">
+      <form action="./validation_connexion.php" method="post">
         <div class="noms">
           <label for="nom_utilisateur">Nom d'utilisateur</label>
           <input id="nom_utilisateur" name="nom_utilisateur" required>
