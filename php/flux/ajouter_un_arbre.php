@@ -4,10 +4,10 @@
     <title>Grimpe un arbre - Nouvelle publication</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <?php
     if (!isset($_COOKIE['identifiant'])) {
-      header('Location: ./connexion.php');
+      header('Location: ../connexion.php');
     }
     ?>
   </head>

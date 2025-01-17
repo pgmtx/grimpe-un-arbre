@@ -47,6 +47,11 @@ input[type=submit] {
   padding: 5px 35px;
 }
 
+.requis:after {
+  content: '*';
+  color: red;
+}
+
 .valide {
   color: green;
 }

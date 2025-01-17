@@ -25,6 +25,7 @@
       <div id="mon_dropdown" class="contenu_dropdown">
         <a href="./infos.php">À propos</a>
         <a href="./mes_publications.php">Mes publications</a>
+        <a href="./ajouter_un_arbre.php">Nouvelle publication</a>
         <a href="../deconnexion.php" style="color: red">Déconnexion</a>
       </div>
     </div>
@@ -72,7 +73,7 @@
      * il suffit de parcourir la liste à l'envers.
      */
     $publications_ordonnees = array_reverse($publications);
-    $publications_des_autres = array_filter(array_reverse($publications_ordonnees), function($p) use ($identifiant) {
+    $publications_des_autres = array_filter($publications_ordonnees, function($p) use ($identifiant) {
       return $p['auteur'] !== $identifiant;
     });
     foreach (array_values($publications_des_autres) as $i => $publication) {
