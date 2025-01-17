@@ -32,53 +32,15 @@
     <script src="../../js/flux.js"></script>
     ';
 
-    function afficher_publication($indice, $publication) {
-      require_once('date.php');
-      echo "
-      <div class=\"publication\">
-        <h2>{$publication['titre']}</h2>
-        <p style=\"font-style: italic\">Écrit par <strong>";
-
-      $auteur = $publication['auteur'];
-      if ($auteur === 'admin') {
-        echo "<span style=\"color: red\">$auteur</span>";
-      } else {
-        echo $auteur;
-      }
-
-      $date = obtenir_date($publication['date_creation'], true);
-      echo "
-          </strong>
-        </p>
-        <p id=\"contenu\">{$publication['contenu']}</p>
-        <p class=\"sous_texte\">Publié le {$date}</p>
-      </div>";
-    }
-
-    require('../requetes.php');
-    $requete = faire_requete_sql("SELECT * FROM publications");
-    $publications = $requete->fetchAll();
-
-    if (count($publications) === 0) {
-      echo "<p>C'est un peu vide ici...</p>";
-    } else {
-      echo '
-        <h1>Publications récentes</h1>
-        <p>Vos publications ne seront pas affichées ici. Pour les voir, allez sur "Mes publications"</p>
-      ';
-    }
-
-    /* On parcourt du plus récent au moins récent.
-     * Sachant que plus l'id d'une publication est élevé, plus il est récent,
-     * il suffit de parcourir la liste à l'envers.
-     */
-    $publications_ordonnees = array_reverse($publications);
-    $publications_des_autres = array_filter($publications_ordonnees, function($p) use ($identifiant) {
-      return $p['auteur'] !== $identifiant;
-    });
-    foreach (array_values($publications_des_autres) as $i => $publication) {
-      afficher_publication($i, $publication);
-    }
+    require('affichage_publications.php');
+    echo '<h1>Publications récentes</h1>';
+    afficher_publications(
+      function($p) use ($identifiant) {
+        return $p['auteur'] !== $identifiant;
+      },
+      "C'est un peu vide ici...",
+      'Vos publications ne seront pas affichées ici. Pour les voir, rendez-vous sur "Mes publications"'
+    );
     ?>
   </body>
 </html>
