@@ -18,7 +18,7 @@
     echo '<div id="dropdown">';
     //<img alt="Photo de profil" src="../../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
     echo '<button class="bouton_dropdown" onclick="changer_affichage_dropdown()">
-    <span style="vertical-align: middle; font-weight: bold">';
+    <span style="font-weight: bold">';
     echo $identifiant;
     echo '</span>
       </button>
@@ -36,7 +36,7 @@
       echo "
       <div class=\"publication\">
         <h2>{$publication['titre']}</h2>
-        <p>Écrit par ";
+        <p style=\"font-style: italic\">Écrit par <strong>";
 
       $auteur = $publication['auteur'];
       if ($auteur === 'admin') {
@@ -47,8 +47,9 @@
 
       $date = obtenir_date($publication['date_creation'], true);
       echo "
+          </strong>
         </p>
-        <p>{$publication['contenu']}</p>
+        <p id=\"contenu\">{$publication['contenu']}</p>
         <p class=\"sous_texte\">Publié le {$date}</p>
       </div>";
     }

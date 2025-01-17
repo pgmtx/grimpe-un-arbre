@@ -10,10 +10,11 @@ body {
 }
 
 .publication {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 1em;
   margin-bottom: 1em; 
   max-width: 50%;
+  border-radius: 1em;
 }
 
 .sous_texte {
@@ -52,9 +53,10 @@ body {
   background-color: #1c3f1d;
   color: white;
   font-size: var(--taille_texte_bouton);
-  padding: 1em 3em;
+  padding: 1em 3.5em;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .bouton_dropdown:hover, .bouton_dropdown:focus {
@@ -67,4 +69,5 @@ body {
   padding: 1em;
   text-decoration: none;
   display: block;
+  border-radius: 4px;
 }
