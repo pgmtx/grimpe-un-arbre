@@ -17,7 +17,10 @@ function verifier_validite_connexion() {
   }
   else {
 	$mot_de_passe = $ancien_mot_de_passe;
-	modifier_mot_de_passe ($mot_de_passe);
+	function modifier_mot_de_passe ($mot_de_passe);{
+		  $sql = "INSERT INTO comptes (mot_de_passe) VALUE ('$mot_de_passe')";
+ 		   faire_requete_sql($sql);
+}
 }
 
 
