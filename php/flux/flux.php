@@ -24,7 +24,7 @@
       </button>
       <div id="mon_dropdown" class="contenu_dropdown">
         <a href="./infos.php">À propos</a>
-        <a href="../deconnexion.php">Déconnexion</a>
+        <a href="../deconnexion.php" style="color: red">Déconnexion</a>
       </div>
     </div>
     <script src="../../js/flux.js"></script>';
