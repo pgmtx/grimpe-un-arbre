@@ -20,8 +20,14 @@ function afficher_publication($publication) {
     </p>
     <p id=\"contenu\">{$publication['contenu']}</p>
     <p class=\"sous_texte\">Publié le {$date}</p>
-    </div>
   ";
+  echo '
+    <div align="right">
+      <img style="vertical-align: middle" alt="Photo de profil" src="../../static/photo_profil.png" width="32" height="32">
+      <span>1000</span>
+    </div>
+  </div>
+  ';
 }
 
 // Renvoie true s'il y a au moins une publications

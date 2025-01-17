@@ -12,27 +12,29 @@
       header('Location: ../index.php');
       die();
     }
+    ?>
 
+    <div id="dropdown">
+    <button class="bouton_dropdown" onclick="changer_affichage_dropdown()">
+    <span style="font-weight: bold">
+    <?php
     $identifiant = $_COOKIE['identifiant'];
-
-    echo '<div id="dropdown">';
-    //<img alt="Photo de profil" src="../../static/photo_profil.png" width="32" height="32" style="vertical-align: middle">
-    echo '<button class="bouton_dropdown" onclick="changer_affichage_dropdown()">
-    <span style="font-weight: bold">';
     echo $identifiant;
-    echo '</span>
+    ?>
+    </span>
       </button>
       <div id="mon_dropdown" class="contenu_dropdown">
         <a href="./infos.php">À propos</a>
         <a href="./mes_publications.php">Mes publications</a>
         <a href="./ajouter_un_arbre.php">Nouvelle publication</a>
-        <a href="../deindex.php" style="color: red">Déconnexion</a>
+        <a href="../deconnexion.php" style="color: red">Déconnexion</a>
       </div>
     </div>
     <script src="../../js/flux.js"></script>
-    ';
 
+    <?php
     require('affichage_publications.php');
+
     echo '<h1>Publications récentes</h1>';
     afficher_publications(
       function($p) use ($identifiant) {
