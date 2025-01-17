@@ -28,7 +28,8 @@
         <a href="../deconnexion.php" style="color: red">Déconnexion</a>
       </div>
     </div>
-    <script src="../../js/flux.js"></script>';
+    <script src="../../js/flux.js"></script>
+    ';
 
     function afficher_publication($indice, $publication) {
       require_once('date.php');
@@ -59,7 +60,10 @@
     if (count($publications) === 0) {
       echo "<p>C'est un peu vide ici...</p>";
     } else {
-      echo "<h1>Publications récentes</h1>";
+      echo '
+        <h1>Publications récentes</h1>
+        <p>Vos publications ne seront pas affichées ici. Pour les voir, allez sur "Mes publications"</p>
+      ';
     }
 
     /* On parcourt du plus récent au moins récent.
@@ -67,7 +71,10 @@
      * il suffit de parcourir la liste à l'envers.
      */
     $publications_ordonnees = array_reverse($publications);
-    foreach (array_values($publications_ordonnees) as $i => $publication) {
+    $publications_des_autres = array_filter(array_reverse($publications_ordonnees), function($p) use ($identifiant) {
+      return $p['auteur'] !== $identifiant;
+    });
+    foreach (array_values($publications_des_autres) as $i => $publication) {
       afficher_publication($i, $publication);
     }
     ?>
