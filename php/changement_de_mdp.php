@@ -17,7 +17,7 @@ function verifier_validite_connexion() {
   }
   else {
 	$mot_de_passe = $ancien_mot_de_passe;
-	modifier mot_de_passe ($mot_de_passe);
+	modifier_mot_de_passe ($mot_de_passe);
 }
 
 
