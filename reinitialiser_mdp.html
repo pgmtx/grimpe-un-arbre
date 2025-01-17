@@ -29,7 +29,14 @@
         <input type="submit" value="Changer">
       </form>
     </div>
-
+    <div id="message">
+      <h3>Le mot de passe doit contenir les éléments suivants :</h3>
+      <p id="minuscule" class="invalide">Une lettre <strong>minuscule</strong></p>
+      <p id="majuscule" class="invalide">Une lettre <strong>majuscule</strong></p>
+      <p id="chiffre" class="invalide">Un <strong>chiffre</strong></p>
+      <p id="longueur" class="invalide">Au minimum <strong>8 caractères</strong></p>
+      <p id="memes_mdp" class="invalide">Vous devez <strong>confirmer</strong> votre mot de passe</p>
+    </div>
     <script src="./js/gestion_mdp.js"></script>
   </body>
 </html>
