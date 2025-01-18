@@ -10,6 +10,14 @@ function creer_pdo() {
 function faire_requete_sql($sql) {
   $pdo = creer_pdo();
   $requete = $pdo->prepare($sql);
+  /* Si la requête n'a pas abouti, cela veut potentiellement dire que les tables
+   * ne figurent dans la base de données.
+   * On exécute ces instructions pour les créer si nécessaire.
+   */
+  if (!$requete) {
+    $contenu_fichier = file_get_contents("../grimpe_un_arbre.sql");
+    $requete = $pdo->prepare($contenu_fichier);
+  }
   $requete->execute();
 
   return $requete;

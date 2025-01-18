@@ -1,3 +1,5 @@
+#!/usr/bin/env -S yue -e
+
 --[[
   Auteur: Programutox
   Ce programme calcule le pourcentage de contributions de chacun en fonction
@@ -18,7 +20,7 @@ const executer_commande = (commande) ->
   Par défaut les séparateurs sont des espaces blancs (espace, saut de ligne,
   retour chariot, tabulation).
 ]]
-const fractionner = (str, separator="%s") -> comme_liste str\gmatch "([^#{separator}]+)"
+const fractionner = (str, separateur="%s") -> comme_liste str\gmatch "([^#{separateur}]+)"
 
 const sortie = executer_commande "git shortlog -sn"
 const elements = fractionner sortie

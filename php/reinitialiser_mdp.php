@@ -9,6 +9,10 @@ function valider_reinitialisation() {
 
   $nom_utilisateur = $_POST['nom_utilisateur'];
   $compte = obtenir_compte_correspondant($nom_utilisateur);
+  if (is_null($compte)) {
+    throw new Exception("Le nom d'utilisateur '$nom_utilisateur' n'existe pas.");
+  }
+
   $mot_de_passe = $compte['mot_de_passe'];
   $nouveau_mot_de_passe = $_POST["mot_de_passe"];
 
