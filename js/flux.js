@@ -13,3 +13,9 @@ window.onclick = (event) => {
     }
   }
 }
+
+function changer_image_bouton(id_image) {
+  let image = document.getElementById(id_image)
+  const nom_image = image.src.includes("sans_like") ? "like" : "sans_like";
+  image.src = `../../static/${nom_image}.png`;
+}

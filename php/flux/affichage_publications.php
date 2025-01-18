@@ -1,5 +1,5 @@
 <?php
-function afficher_publication($publication) {
+function afficher_publication($publication, $i) {
   require_once('date.php');
   echo "
     <div class=\"publication\">
@@ -20,14 +20,12 @@ function afficher_publication($publication) {
     </p>
     <p class=\"contenu\">{$publication['contenu']}</p>
     <p class=\"sous_texte\">Publié le {$date}</p>
-  ";
-  echo '
-    <div class="contenu_like" align="right">
-      <img style="vertical-align: middle" alt="Photo de profil" src="../../static/photo_profil.png">
-      <button class="bouton_like"></button>
+    <div class=\"contenu_like\" align=\"right\">
+      <img id=\"like$i\" style=\"vertical-align: middle\" alt=\"Photo de profil\" src=\"../../static/sans_like.png\">
+      <button class=\"bouton_like\" onclick=\"changer_image_bouton('like$i')\"></button>
     </div>
   </div>
-  ';
+  ";
 }
 
 function afficher_publications($predicat, $message_si_vide="", $message_si_rempli="") {
@@ -49,8 +47,8 @@ function afficher_publications($predicat, $message_si_vide="", $message_si_rempl
    */
   $publications_ordonnees = array_reverse($publications);
   $publications_filtrees = array_filter($publications_ordonnees, $predicat);
-  foreach (array_values($publications_filtrees) as $publication) {
-    afficher_publication($publication);
+  foreach (array_values($publications_filtrees) as $i => $publication) {
+    afficher_publication($publication, $i);
   }
 }
 ?>

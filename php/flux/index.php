@@ -30,7 +30,6 @@
         <a href="../deconnexion.php" style="color: red">Déconnexion</a>
       </div>
     </div>
-    <script src="../../js/flux.js"></script>
 
     <?php
     require('affichage_publications.php');
@@ -44,5 +43,6 @@
       'Vos publications ne seront pas affichées ici. Pour les voir, rendez-vous sur "Mes publications"'
     );
     ?>
+    <script src="../../js/flux.js"></script>
   </body>
 </html>
