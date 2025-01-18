@@ -15,13 +15,13 @@
     ?>
 
     <div id="dropdown">
-    <button class="bouton_dropdown" onclick="changer_affichage_dropdown()">
-    <span style="font-weight: bold">
-    <?php
-    $identifiant = $_COOKIE['identifiant'];
-    echo $identifiant;
-    ?>
-    </span>
+      <button class="bouton_dropdown" onclick="changer_affichage_dropdown()">
+      <span style="font-weight: bold">
+      <?php
+      $identifiant = $_COOKIE['identifiant'];
+      echo $identifiant;
+      ?>
+      </span>
       </button>
       <div id="mon_dropdown" class="contenu_dropdown">
         <a href="./infos.php">À propos</a>

@@ -18,19 +18,18 @@ function afficher_publication($publication) {
   echo "
     </strong>
     </p>
-    <p id=\"contenu\">{$publication['contenu']}</p>
+    <p class=\"contenu\">{$publication['contenu']}</p>
     <p class=\"sous_texte\">Publié le {$date}</p>
   ";
   echo '
-    <div align="right">
-      <img style="vertical-align: middle" alt="Photo de profil" src="../../static/photo_profil.png" width="32" height="32">
-      <span>1000</span>
+    <div class="contenu_like" align="right">
+      <img style="vertical-align: middle" alt="Photo de profil" src="../../static/photo_profil.png">
+      <button class="bouton_like"></button>
     </div>
   </div>
   ';
 }
 
-// Renvoie true s'il y a au moins une publications
 function afficher_publications($predicat, $message_si_vide="", $message_si_rempli="") {
   require('../requetes.php');
 
