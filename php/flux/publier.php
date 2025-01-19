@@ -20,9 +20,18 @@
     $hauteur = $_POST['hauteur'];
     $espece = strtolower($_POST['espece']);
     $difficulte = strtolower($_POST['difficulte']);
-    $contenu = "Je grimpai un $espece de {$hauteur}m. Ce fut $difficulte, mais franchement très sympa.";
-    $sql = "INSERT INTO publications (titre, auteur, contenu) VALUES ('$titre', '$auteur', '$contenu')";
-    $requete = faire_requete_sql($sql);
+    $contenu = "J'ai grimpé un $espece de {$hauteur}m de haut. C'était $difficulte, mais franchement très sympa.";
+
+    /* On ne peut pas simplement utiliser faire_requete_sql ici,
+     * car cette fonction ne gère pas correctement les apostrophes.
+     */
+    $pdo = creer_pdo();
+    $sql = "INSERT INTO publications (titre, auteur, contenu) VALUES (:titre, :auteur, :contenu)";
+    $requete = $pdo->prepare($sql);
+    $requete->bindParam(':titre', $titre);
+    $requete->bindParam(':auteur', $auteur);
+    $requete->bindParam(':contenu', $contenu);
+    $requete->execute();
 
     echo "<h1></h1>";
     echo "

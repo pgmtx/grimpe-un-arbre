@@ -52,9 +52,4 @@ function rediriger_vers_flux($nom_utilisateur=null) {
   header('Location: ./flux/');
   die();
 }
-
-function formater_pour_sql($texte) {
-  $pdo = creer_pdo();
-  return $pdo->quote($texte);
-}
 ?>
