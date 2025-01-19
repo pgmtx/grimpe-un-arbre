@@ -1,3 +1,9 @@
+<!--
+mes_publications.php
+
+Cette page affiche toutes les publications de l'utilisateurs.
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>

@@ -1,3 +1,10 @@
+<!--
+publier.php
+
+Cette page s'exécute une fois que l'on crée une nouvelle publication, et
+affiche le résultat.
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>

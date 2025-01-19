@@ -1,3 +1,10 @@
+<!--
+reinitialiser_mdp.php
+
+Cette page s'exécute lorsque l'on tente de réinitialiser un mot de passe,
+en vérifiant si l'utilisateur n'a pas fait d'erreur.
+-->
+
 <?php 
 function valider_reinitialisation() {
   require('requetes.php');
