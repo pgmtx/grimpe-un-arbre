@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/style.css">
   </head>
   <body>
-  <img alt="Votre photo de profil" src="../../static/photo_profil.png"><br>
+  <img alt="Votre photo de profil" src="../../static/sans_like.png"><br>
   <?php
   if (!isset($_COOKIE['identifiant'])) {
     header('Location: ../index.php');
