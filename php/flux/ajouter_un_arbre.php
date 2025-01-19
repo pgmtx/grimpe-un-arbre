@@ -44,7 +44,7 @@
           <input type="file" id="image">
           <br>
         </div>
-        <input type="submit" value="S'inscrire">
+        <input type="submit" value="Publier">
       </form>
     </div>
   </body>
