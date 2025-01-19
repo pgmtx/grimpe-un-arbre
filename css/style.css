@@ -73,8 +73,8 @@ input[type=submit] {
   content: "\292B"; /* Une croix */
 }
 
-#bouton_connexion {
-  background-color: #1c3f1d;
+.bouton_lien {
+  background-color: red/*#1c3f1d*/;
   display: inline-block; /* Cela évite que les boutons se superposent sur les textes aux alentours */
   padding: 10px 20px;
   margin: 10px 5px;
@@ -84,7 +84,15 @@ input[type=submit] {
   transition: 0.2s transform;
 }
 
-#bouton_connexion:hover {
+#bouton_connexion {
+  background-color: #1C3F1D;
+}
+
+#bouton_contact {
+  background-color: #92140C;
+}
+
+.bouton_lien:hover {
   text-decoration: underline;
   transform: scale(1.15) perspective(12px);
 }
