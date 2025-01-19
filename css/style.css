@@ -32,6 +32,16 @@ label {
 input[type=submit] {
   /* text-align ne fonctionne pas ici, car le texte du bouton est déjà centré. */
   margin: auto;
+  background-color: #1C3F1D;
+  color: white;
+  border: none;
+  padding: 0.5em 1.5em;
+  border-radius: 4px;
+}
+
+input[type=submit]:hover {
+  background-color: #258C28;
+  cursor: pointer;
 }
 
 #message {
