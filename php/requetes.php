@@ -14,25 +14,11 @@ function creer_pdo() {
   return $pdo;
 }
 
-/*
-function faire_requete_sql($sql) {
-  $pdo = creer_pdo();
-  $requete = $pdo->prepare($sql);
-  if (!$requete) {
-    $contenu_fichier = file_get_contents("../grimpe_un_arbre.sql");
-    $requete = $pdo->prepare($contenu_fichier);
-  }
-  $requete->execute();
-
-  return $requete;
-}
-*/
-
 /* Fonction aux paramètres variadiques
  *
  * Contrairement à l'ancienne version, cette fonction gère correctement les
  * apostrophes.
- * $arguments doit être composé des formats et variables correspondantes.
+ * $arguments doit être composé de couples format/variable pour utiliser bindParam.
  *
  * Exemple :
  * $sql = "INSERT INTO publications (titre, auteur, contenu) VALUES (:titre, :auteur, :contenu)";
@@ -40,27 +26,33 @@ function faire_requete_sql($sql) {
  */
 function faire_requete_sql($sql, ...$arguments) {
   $nombre_arguments = count($arguments);
+
+  // Comme on ne veut que des couples, la taille d'arguments doit être pair.
   assert($nombre_arguments % 2 === 0);
 
   $pdo = creer_pdo();
+
+  // Permet au pdo de ne pas déclencher d'exception si execute() se passe mal.
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   $requete = $pdo->prepare($sql);
+
+  for ($i = 0; $i < $nombre_arguments; $i += 2) {
+    $requete->bindParam($arguments[$i], $arguments[$i+1]);
+  }
 
   /* Si la requête n'a pas abouti, cela veut (potentiellement) dire que les tables
    * ne figurent dans la base de données.
    * Dans ce cas, on exécute ces instructions pour les créer.
+   *
    * Par ailleurs, le contenu du fichier ne contient aucun commentaire, ce qui
-   * est volontaire afin que les requêtes du fichier s'exécutent plus rapidement. 
+   * est volontaire afin que les requêtes du fichier s'exécutent plus rapidement,
+   * bien que cela prenne toujours un peu de temps.
    */
-  if (!$requete) {
+  if (!$requete->execute()) {
     $contenu_fichier = file_get_contents("../grimpe_un_arbre.sql");
     $requete = $pdo->prepare($contenu_fichier);
-  } else {
-    for ($i = 0; $i < $nombre_arguments; $i += 2) {
-      $requete->bindParam($arguments[$i], $arguments[$i+1]);
-    }
+    $requete->execute();
   }
-
-  $requete->execute();
   return $requete;
 }
 
