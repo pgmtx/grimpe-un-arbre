@@ -20,8 +20,8 @@ function valider_reinitialisation() {
     throw new Exception("Le nouveau mot de passe est identique au précédent");
   }
 
-  $sql = "UPDATE comptes SET mot_de_passe = '$nouveau_mot_de_passe' WHERE comptes.identifiant = '$nom_utilisateur'";
-  faire_requete_sql($sql);
+  $sql = "UPDATE comptes SET mot_de_passe = :nouveau_mot_de_passe WHERE comptes.identifiant = :nom_utilisateur";
+  faire_requete_sql($sql, ':nouveau_mot_de_passe', $nouveau_mot_de_passe, ':nom_utilisateur', $nom_utilisateur);
 
   header('Location: ./index.php');
   die();

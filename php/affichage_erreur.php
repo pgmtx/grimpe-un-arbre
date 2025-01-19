@@ -11,10 +11,11 @@ function executerAvecErreurs($fonction, $lien_redirection='./index.php') {
   try {
     $fonction();
   } catch (Exception $e) {
+    $message = addslashes($e->getMessage());
     echo "<script type=\"text/javascript\">
       function revenir_page_connexion() {
       window.location.href = \"$lien_redirection\";
-      alert(\"Erreur: {$e->getMessage()}\");
+      alert(\"Erreur: $message\");
       };
       revenir_page_connexion();
     </script>";
