@@ -16,7 +16,7 @@ INSERT INTO `comptes` (`identifiant`, `mot_de_passe`, `niveau`, `arbres_grimpes`
 ('faubom', 'Sécur1té', 'Indéfini', 0, '2025-01-16 21:02:31');
 
 CREATE TABLE `publications` (
-  `titre` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `titre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `auteur` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id` int NOT NULL,
