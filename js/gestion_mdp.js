@@ -6,12 +6,12 @@
  * ou non par l'utilisateur.
  */
 
-function changerAffichageMotDePasse() {
+function changer_affichage_mot_de_passe() {
   let mot_de_passe = document.getElementById("mot_de_passe");
   mot_de_passe.type = (mot_de_passe.type === "password") ? "text" : "password";
 }
 
-function compterTypesCaractere(texte) {
+function compter_types_caractere(texte) {
   let majuscules = 0, minuscules = 0, chiffres = 0;
   for (const caractere of texte) {
     if ('0' <= caractere && caractere <= '9') {
@@ -25,13 +25,13 @@ function compterTypesCaractere(texte) {
   return [majuscules, minuscules, chiffres];
 }
 
-function infosEntrees() {
-  entreeVide = (cle) => document.getElementById(cle) === "";
-  return !entreeVide("nom_utilisateur") && !entreeVide("mot_de_passe");
+function infos_entrees() {
+  entree_vide = (cle) => document.getElementById(cle) === "";
+  return !entree_vide("nom_utilisateur") && !entree_vide("mot_de_passe");
 }
 
-function verifierForceMotDePasse() {
-  if (!infosEntrees()) {
+function verifier_force_mot_de_passe() {
+  if (!infos_entrees()) {
     return false;
   }
 
@@ -46,11 +46,11 @@ function verifierForceMotDePasse() {
     return false;
   }
 
-  let [majuscules, minuscules, chiffres] = compterTypesCaractere(mot_de_passe_entre);
+  let [majuscules, minuscules, chiffres] = compter_types_caractere(mot_de_passe_entre);
   return (majuscules > 0) && (minuscules > 0) && (chiffres > 0);
 }
 
-function verifierValidite(id, condition) {
+function verifier_validite(id, condition) {
   let element = document.getElementById(id);
   if (condition) {
     element.classList.remove("invalide");
@@ -61,7 +61,7 @@ function verifierValidite(id, condition) {
   }
 }
 
-function gererAffichageCriteresMotDePasse() {
+function gerer_affichage_criteres_mot_de_passe() {
   let mot_de_passe = document.getElementById("mot_de_passe");
   let confirmation_mot_de_passe = document.getElementById("confirmation_mdp");
 
@@ -70,16 +70,16 @@ function gererAffichageCriteresMotDePasse() {
   };
 
   mot_de_passe.onkeyup = () => {
-    verifierValidite("minuscule", mot_de_passe.value.match(/[a-z]/g));
-    verifierValidite("majuscule", mot_de_passe.value.match(/[A-Z]/g));
-    verifierValidite("chiffre", mot_de_passe.value.match(/[0-9]/g));
-    verifierValidite("longueur", mot_de_passe.value.length >= 8);
-    verifierValidite("memes_mdp", mot_de_passe.value === confirmation_mot_de_passe.value);
+    verifier_validite("minuscule", mot_de_passe.value.match(/[a-z]/g));
+    verifier_validite("majuscule", mot_de_passe.value.match(/[A-Z]/g));
+    verifier_validite("chiffre", mot_de_passe.value.match(/[0-9]/g));
+    verifier_validite("longueur", mot_de_passe.value.length >= 8);
+    verifier_validite("memes_mdp", mot_de_passe.value === confirmation_mot_de_passe.value);
   };
 
   confirmation_mot_de_passe.onkeyup = () => {
-    verifierValidite("memes_mdp", mot_de_passe.value === confirmation_mot_de_passe.value);
+    verifier_validite("memes_mdp", mot_de_passe.value === confirmation_mot_de_passe.value);
   };
 }
 
-gererAffichageCriteresMotDePasse();
+gerer_affichage_criteres_mot_de_passe();

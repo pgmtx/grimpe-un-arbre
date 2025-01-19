@@ -31,7 +31,7 @@ if (isset($_COOKIE['identifiant'])) {
           <label for="mot_de_passe">Mot de passe</label>
           <input type="password" id="mot_de_passe" name="mot_de_passe" required>
           <div>
-            <input type="checkbox" id="afficheur" name="afficheur" onclick="changerAffichageMotDePasse()">
+            <input type="checkbox" id="afficheur" name="afficheur" onclick="changer_affichage_mot_de_passe()">
             <label for="afficheur" style="text-align: left">Afficher le mot de passe</label>
           </div>
         </div>

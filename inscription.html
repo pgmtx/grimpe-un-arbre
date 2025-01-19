@@ -9,7 +9,7 @@
   <body>
     <div class="conteneur">
       <h1>Inscription</h1>
-      <form name="formulaire" action="./php/validation_inscription.php" onsubmit="return verifierForceMotDePasse()" method="post">
+      <form name="formulaire" action="./php/validation_inscription.php" onsubmit="return verifier_force_mot_de_passe()" method="post">
         <div class="noms">
           <label for="nom_utilisateur">Nom d'utilisateur</label>
           <input id="nom_utilisateur" name="nom_utilisateur" required>
@@ -17,7 +17,7 @@
           <label for="mot_de_passe">Mot de passe</label>
           <input type="password" id="mot_de_passe" name="mot_de_passe" required>
           <div>
-            <input type="checkbox" id="afficheur" name="afficheur" onclick="changerAffichageMotDePasse()">
+            <input type="checkbox" id="afficheur" name="afficheur" onclick="changer_affichage_mot_de_passe()">
             <label for="afficheur" style="text-align: left">Afficher le mot de passe</label>
           </div>
           <label for="confirmation_mdp">Confirmer le mot de passe</label>
