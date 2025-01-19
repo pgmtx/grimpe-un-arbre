@@ -73,6 +73,15 @@ input[type=submit] {
   content: "\292B"; /* Une croix */
 }
 
+#image_responsive {
+  width: 100%;
+  /* On limite la largeur de l'image sinon elle prendrait systématiquement
+   * tout l'écran.
+   */
+  max-width: 640px;
+  height: auto;
+}
+
 .bouton_lien {
   background-color: red/*#1c3f1d*/;
   display: inline-block; /* Cela évite que les boutons se superposent sur les textes aux alentours */
