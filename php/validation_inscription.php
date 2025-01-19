@@ -1,3 +1,12 @@
+<!--
+validation_inscription.php
+
+Ce fichier s'exécute lorsque l'utilisateur tente de s'inscrire et que son mot
+de passe respecte certains critères (voir js/gestion_mdp.js), et vérifie si
+les informations entrées sont correctes par rapport aux informations sur la
+base de données.
+-->
+
 <?php
 require('requetes.php');
 

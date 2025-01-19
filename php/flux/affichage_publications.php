@@ -1,3 +1,11 @@
+<!--
+affichage_publications.php
+
+Ce module possède des fonctions gérant l'affichage et l'organisation de chaque
+publication. Nous l'avons créé afin d'éviter des doublons dans les pages flux/index.php
+et mes_publications.php, et pour les éventuelles futures pages.
+-->
+
 <?php
 function afficher_publication($publication, $i) {
   require_once('date.php');

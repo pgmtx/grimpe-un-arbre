@@ -1,3 +1,9 @@
+<!--
+infos.php
+
+Page montrant des informations sur l'utilisateur.
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>

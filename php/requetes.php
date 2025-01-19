@@ -1,3 +1,10 @@
+<!--
+requetes.php
+
+Ce module regroupe des fonctions usuelles pour effectuer des requêtes SQL à
+l'aide de PDO.
+-->
+
 <?php
 function creer_pdo() {
   $configs = include('config.php');
@@ -12,7 +19,7 @@ function faire_requete_sql($sql) {
   $requete = $pdo->prepare($sql);
   /* Si la requête n'a pas abouti, cela veut potentiellement dire que les tables
    * ne figurent dans la base de données.
-   * On exécute ces instructions pour les créer si nécessaire.
+   * Dans ce cas on exécute ces instructions pour les créer.
    */
   if (!$requete) {
     $contenu_fichier = file_get_contents("../grimpe_un_arbre.sql");

@@ -1,3 +1,12 @@
+<!--
+date.php
+
+Module permettant de générer des dates formatées en français, car ce n'est
+pas possible nativement en PHP.
+Sur la base de données, au lieu de datetimes, nous avons eu recours à des
+timestamps, car ces derniers sont plus faciles à manipuler.
+-->
+
 <?php
 function obtenir_mois_francais($mois) {
   $mois_anglais = array(

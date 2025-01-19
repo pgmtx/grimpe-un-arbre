@@ -1,8 +1,13 @@
+/* flux.js
+ *
+ * Ce script s'occupe des interactions sur la page principale du flux.
+ */
+
 function changer_affichage_dropdown() {
   document.getElementById("mon_dropdown").classList.toggle("affichable");
 }
 
-// Fait en sorte que le dropdown se referme lorsque l'on clique ailleurs'
+// Fait en sorte que le dropdown se referme lorsque l'on clique ailleurs
 window.onclick = (event) => {
   if (!event.target.matches(".bouton_dropdown")) {
     let dropdowns = document.getElementsByClassName("contenu_dropdown");

@@ -1,3 +1,9 @@
+<!--
+ajouter_un_arbre.php
+
+Page permettant de créer une nouvelle publication.
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -7,6 +13,9 @@
     <link rel="stylesheet" href="../../css/style.css">
     <?php
     if (!isset($_COOKIE['identifiant'])) {
+      /* Équivalent à ./index.php, à la différence que 'index.php' ne sera
+       * pas affiché sur le lien.
+       */
       header('Location: ../index.php');
     }
     ?>
@@ -17,7 +26,11 @@
       <form name="ajouter_arbre" action="./publier.php" method="post">
         <div class="noms">
           <label for="titre" class="requis">Titre</label>
-          <!-- id pour le label et name pour la récupération POST en php -->
+          <!--
+          L'id est utilisé pour le label et le name pour la récupération POST en php.
+          Exemple: pour récupérer la valeur de l'input ci-dessous, on notera
+          $_POST['titre'].
+          -->
           <input type="text" id="titre" name="titre" required>
           <br>
           <label for="espece" class="requis">Espèce</label>

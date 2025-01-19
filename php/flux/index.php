@@ -1,3 +1,10 @@
+<!--
+index.php
+
+C'est sur cette page que l'on se retrouve après s'être connecté.
+Elle affiche les publications des autres utilisateurs.
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>

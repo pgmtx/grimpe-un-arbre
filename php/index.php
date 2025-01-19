@@ -1,9 +1,11 @@
-<?php
-/* NOTE: Ce fichier se nomme index.php au lieu de connexion.php
- * afin d'éviter que les utilisateurs tombent sur la liste des fichiers php
- * en tentant d'aller sur le dossier php.
- */
+<!--
+index.php
 
+Ce fichier se nommait auparavant connexion.php, mais afin d'éviter que les
+utilisateurs tombent sur l'arborescence de fichiers en tentant d'aller sur le
+dossier php, nous l'avons renommé index.php.
+-->
+<?php
 if (isset($_COOKIE['identifiant'])) {
   require('requetes.php');
   rediriger_vers_flux();

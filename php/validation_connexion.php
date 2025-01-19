@@ -1,3 +1,10 @@
+<!--
+validation_connexion.php
+
+Ce fichier s'exécute lorsque l'utilisateur tente de se connecter, et vérifie
+si les informations entrées sont correctes.
+-->
+
 <?php
 function verifier_validite_connexion() {
   require('requetes.php');
@@ -28,6 +35,9 @@ function verifier_validite_connexion() {
 */
 if (!debug_backtrace()) {
   require('affichage_erreur.php');
+  /* Il n'est malheureusement pas possible de directement renseigner la fonction
+   * comme paramètre: executerAvecErreurs(verifier_validite_connexion);
+   */
   executerAvecErreurs(function() { verifier_validite_connexion(); });
 }
 ?>

@@ -1,3 +1,11 @@
+/* gestion_mdp.js
+ *
+ * Ce script est exécuté dès lors que l'utilisateur entre un mot de passe
+ * sur la page de connexion ou de réinitialisation du mot de passe.
+ * Il affiche alors les critères du mot de passe et s'ils sont respectés
+ * ou non par l'utilisateur.
+ */
+
 function changerAffichageMotDePasse() {
   let mot_de_passe = document.getElementById("mot_de_passe");
   mot_de_passe.type = (mot_de_passe.type === "password") ? "text" : "password";
